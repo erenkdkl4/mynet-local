@@ -218,7 +218,7 @@
 
       // Backend image proxy
       function proxied(imgUrl) {
-        return `/img?u=${encodeURIComponent(imgUrl)}`;
+        return `${API_BASE}/img?u=${encodeURIComponent(imgUrl)}`;
       }
 
       async function loadNews(path, btn, pageTitle) {
@@ -241,7 +241,8 @@
         const timer = setTimeout(() => controller.abort(), 12000);
 
         try {
-          const res = await fetch(`/${path}`, {
+          const API_BASE = "https://SENIN-BACKEND-ADRESIN.onrender.com"; // birazdan bunu dolduracağız
+          const res = await fetch(`${API_BASE}/${path}`, {
             signal: controller.signal,
             headers: { Accept: "application/json" },
           });
