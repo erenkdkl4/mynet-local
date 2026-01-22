@@ -1,0 +1,7 @@
+@"
+flask
+flask-cors
+feedparser
+requests
+beautifulsoup4
+"@ | Out-File -Encoding utf8 requirements.txt
