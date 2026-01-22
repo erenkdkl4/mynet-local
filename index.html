@@ -102,6 +102,10 @@
     </div>
 
     <script>
+      // ✅ BURAYI Render URL’inle değiştir:
+      // Örn: const API_BASE = "https://mynet-local-xxxx.onrender.com";
+      const API_BASE = "https://mynet-local.onrender.com";
+
       const districts = [
         "Adalar",
         "Arnavutköy",
@@ -216,7 +220,7 @@
         return `https://source.unsplash.com/800x500/?${encodeURIComponent(q)}&sig=${sig}`;
       }
 
-      // Backend image proxy
+      // ✅ Backend image proxy (Render üstünden)
       function proxied(imgUrl) {
         return `${API_BASE}/img?u=${encodeURIComponent(imgUrl)}`;
       }
@@ -238,14 +242,15 @@
       `;
 
         const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), 12000);
+        const timer = setTimeout(() => controller.abort(), 15000);
 
         try {
-          const API_BASE = "https://SENIN-BACKEND-ADRESIN.onrender.com"; // birazdan bunu dolduracağız
+          // ✅ API çağrıları Render backend’e gidiyor
           const res = await fetch(`${API_BASE}/${path}`, {
             signal: controller.signal,
             headers: { Accept: "application/json" },
           });
+
           clearTimeout(timer);
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
