@@ -1,1 +1,6 @@
+flask
+flask-cors
+feedparser
+requests
+beautifulsoup4
 gunicorn

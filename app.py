@@ -273,5 +273,10 @@ def breaking_news():
 
     return jsonify(data)
 
+
+@app.route("/")
+def home():
+    return send_file(os.path.join(BASE_DIR, "index.html"))
+
 if __name__ == "__main__":
     app.run(port=5000, debug=False)
